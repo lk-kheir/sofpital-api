@@ -8,3 +8,4 @@ flask-bcrypt
 psycopg2-binary
 bcrypt
 PyJWT
+gunicorn
