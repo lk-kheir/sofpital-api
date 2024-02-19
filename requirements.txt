@@ -1,0 +1,10 @@
+flask
+flask-cors
+pathlib
+python-dotenv
+Flask-SQLAlchemy
+Flask-migrate
+flask-bcrypt
+psycopg2-binary
+bcrypt
+PyJWT
