@@ -24,6 +24,10 @@ api.register_blueprint(tutor, url_prefix="/tutor")
 api.register_blueprint(meeting, url_prefix="/meeting")
 
 
+@api.route('/welcome', methods = ["GET"])
+def welcome():
+    return jsonify({"message": "Welcome to the API"})
+
 @api.route('/search/posts', methods = ["GET"])
 def search_posts(query):
     query = request.args.get('query')
