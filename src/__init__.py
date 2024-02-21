@@ -16,7 +16,7 @@ app = Flask(__name__)
 # assuming that the frontend is running on port 5173
 # making our application to accept requests from the frontend
 # Explicitly allow requests from 'https://sofpital.vercel.app'
-cors = CORS(app, resources={r"/api/*": {"origins": "https://sofpital.vercel.app"}})
+cors = CORS(app, resources={r"/api/*": {"origins": "https://sofpital-hu26uscgr-louzanizineddine.vercel.app"}})
 
 # calling the dev configuration
 config = Config().dev_config
