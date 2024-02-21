@@ -13,12 +13,11 @@ load_dotenv()
 app = Flask(__name__)
 
 # CORS(app)
-# assuming that the frontend is running on port 5173
 # making our application to accept requests from the frontend
 # Explicitly allow requests from 'https://sofpital.vercel.app'
 allowed_origins = [
     "https://sofpital-hu26uscgr-louzanizineddine.vercel.app",
-    "https://sofpital.vercel.app/",
+    "https://sofpital.vercel.app",
 ]
 
 cors = CORS(app, resources={r"/api/*": {"origins": allowed_origins}})
