@@ -26,7 +26,7 @@ api.register_blueprint(meeting, url_prefix="/meeting")
 
 @api.route('/welcome', methods = ["GET"])
 def welcome():
-    return jsonify({"message": "Welcome to the API"})
+    return jsonify({"message": "Welcome to the API from algeria"})
 
 @api.route('/search/posts', methods = ["GET"])
 def search_posts(query):
