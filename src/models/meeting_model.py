@@ -8,6 +8,7 @@ class Meeting(db.Model):
     post_id = db.Column(db.Integer(), db.ForeignKey('post.id'), nullable=False)
     date = db.Column(db.DateTime(), nullable=False)
     duration = db.Column(db.Integer(), nullable=False)
+    done = db.Column(db.Boolean(), default=False)
     tutor = db.relationship('Tutor', backref='meetings')
     # feedback = db.Column(db.Text(), nullable=True)
     learner = db.relationship('Learner', backref='meetings')

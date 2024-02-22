@@ -26,6 +26,20 @@ def get_meeting_by_id(current_user,meeting_id):
     return jsonify(to_dict(meeting))
 
 
+@meeting.route('/<meeting_id>', methods = ["PUT"])
+@token_required
+def make_meeting_done(current_user,meeting_id):
+    """make sure both meeting and tutor exists"""
+    meet = Meeting.query.get(meeting_id)
+    if not meet:
+        return jsonify({"error": "Tutor nto found"}), 404
+
+    meet.done = True
+    update(meet)
+    
+    return jsonify({"success": "update done is successfull"}), 200
+
+
 @meeting.route('/learner/<learner_id>', methods = ["GET"])
 @token_required
 def get_meetings_for_learner(current_user, learner_id):
@@ -56,6 +70,8 @@ def get_accepted_meetings_for_learner(current_user, learner_id):
             list_offers.append(to_dict(offer))
     return jsonify(list_offers)
 
+
+
 @meeting.route('/tutor/<tutor_id>', methods = ["GET"])
 @token_required
 def get_meetings_for_tutor(current_user, tutor_id):
@@ -67,7 +83,7 @@ def get_meetings_for_tutor(current_user, tutor_id):
     for meeting in tutor.meetings:
         list_meetings.append(to_dict(meeting))
     return jsonify(list_meetings)
-    
+
 @meeting.route('/', methods = ["POST"])
 @token_required
 def create_new_meeting(current_user):
